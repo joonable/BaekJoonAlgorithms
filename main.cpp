@@ -1,7 +1,7 @@
 #include <iostream>
-#include "pro1110.h"
+#include "pro10828.h"
 
 int main() {
-    pro1110();
+    pro10828();
     return 0;
 }
