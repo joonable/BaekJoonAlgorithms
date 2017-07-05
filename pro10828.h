@@ -6,14 +6,15 @@
 #define BAEKJOONALGORITHMS_PRO10828_H
 
 #include <iostream>
-//#define "push" 1
+#include <cstring>
 using namespace std;
 
-int stack[10000];
 int top = -1;
+const int MAX = 10000;
+int stack[MAX];
 
-void Push(const int& N, const int& x){
-    if(top + 1 == N){
+void Push(const int& x){
+    if(top + 1 == MAX){
         printf("-1\n");
     }
     else{
@@ -21,7 +22,7 @@ void Push(const int& N, const int& x){
     }
 }
 
-void Pop(const int& N){
+void QPop(){
     if(top == -1){
         printf("-1\n");
     }
@@ -30,11 +31,11 @@ void Pop(const int& N){
     }
 }
 
-void Size(){
+void QSize(){
     printf("%d\n", top + 1);
 }
 
-void Empty(){
+void QEmpty(){
     if (top == -1){
         printf("1\n");
     }
@@ -54,23 +55,23 @@ void Top(){
 
 
 int pro10828(){
-    int N;    cin>>N;
 
-    while(true){
+    int N;      cin>>N;
+    for ( int i = 0 ; i < N ; ++i ) {
         char menu[8];     cin>>menu;
         cin.ignore();
         if ( strcmp(menu, "push") == 0){
             int x;      cin>>x;
-            Push(N, x);
+            Push(x);
         }
         else if (strcmp(menu, "pop") == 0){
-            Pop(N);
+            QPop();
         }
         else if(strcmp(menu, "size") == 0){
-            Size();
+            QSize();
         }
         else if(strcmp(menu, "empty") == 0){
-            Empty();
+            QEmpty();
         }
         else if(strcmp(menu, "top") == 0){
             Top();
