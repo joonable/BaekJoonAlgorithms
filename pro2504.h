@@ -10,24 +10,21 @@
 #include <stack>
 
 using namespace std;
-
 const int MAX = 31;
+
 void PrintError(){
-    printf("0\n");
+    printf("NO\n");
     exit(0);
 }
 
-void PrintError();
-
 int pro2504(){
     stack<char> Stack;
-
     char brackets[MAX];      cin>>brackets;
     int len = (int)strlen(brackets);
     int result = 0, temp = 1;
 
     if (brackets[0] == ')' || brackets[0] == ']'){
-        PrintError();
+        printf("NO\n");
     }
 
     for ( int i = 0 ; i < len + 1 ; ++i ) {
@@ -39,7 +36,7 @@ int pro2504(){
             Stack.push( brackets[i] );
             temp *= 3;
         }
-        else if(brackets[i] == ')' ){
+        else if( brackets[i] == ')' ){
             if(Stack.empty()){
                 PrintError();
             }
@@ -69,19 +66,16 @@ int pro2504(){
                 }
                 Stack.pop();
                 temp /= 3;
-
             }
         }
         else{
             //do nothing
         }
-
     }
 
     if(!Stack.empty()){
         PrintError();
     }
-    cout<<result<<endl;
 
     return 0;
 }

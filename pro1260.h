@@ -41,7 +41,6 @@ void Bfs(int v){
     isNode[v - 1] = false;
     printf("%d ", v);
     Queue.pop();
-
     for ( int i = 0 ; i < N ; ++i ) {
         if ( isEdge[v - 1][i] ){
             if (isNode[i]){
@@ -52,6 +51,7 @@ void Bfs(int v){
     }
     Bfs(Queue.front());
 }
+
 int pro1260(){
     cin>>N>>M>>V;
     for ( int i = 0 ; i < N ; ++i ) {

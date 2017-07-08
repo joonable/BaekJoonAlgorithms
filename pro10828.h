@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <cstring>
+
 using namespace std;
 
 int top = -1;
@@ -22,7 +23,7 @@ void Push(const int& x){
     }
 }
 
-void QPop(){
+void Pop(){
     if(top == -1){
         printf("-1\n");
     }
@@ -31,11 +32,11 @@ void QPop(){
     }
 }
 
-void QSize(){
+void Size(){
     printf("%d\n", top + 1);
 }
 
-void QEmpty(){
+void Empty(){
     if (top == -1){
         printf("1\n");
     }
@@ -65,13 +66,13 @@ int pro10828(){
             Push(x);
         }
         else if (strcmp(menu, "pop") == 0){
-            QPop();
+            Pop( );
         }
         else if(strcmp(menu, "size") == 0){
-            QSize();
+            Size( );
         }
         else if(strcmp(menu, "empty") == 0){
-            QEmpty();
+            Empty( );
         }
         else if(strcmp(menu, "top") == 0){
             Top();

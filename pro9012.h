@@ -1,7 +1,3 @@
-//
-// Created by JoonYoung Jeon on 03/07/2017.
-//
-
 #ifndef BAEKJOONALGORITHMS_PRO9012_H
 #define BAEKJOONALGORITHMS_PRO9012_H
 

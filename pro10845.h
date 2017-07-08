@@ -13,11 +13,11 @@ const int MAX = 10000;
 int queue[MAX];
 int head = 0, tail = 0;
 
-void QSize(){
+void Size(){
     printf("%d\n", tail - head);
 }
 
-bool QEmpty(){
+bool Empty(){
     if( head == tail ){
         printf("1\n");
         return true;
@@ -37,7 +37,7 @@ void QPush(int x){
     }
 }
 
-void QPop(){
+void Pop(){
     if ( head == tail ){
         printf("-1\n");
     }
@@ -74,13 +74,13 @@ int pro10845(){
             QPush(x);
         }
         else if (strcmp(menu, "pop") == 0){
-            QPop();
+            Pop( );
         }
         else if(strcmp(menu, "size") == 0){
-            QSize();
+            Size( );
         }
         else if(strcmp(menu, "empty") == 0){
-            QEmpty();
+            Empty( );
         }
         else if(strcmp(menu, "front") == 0){
             QFront();

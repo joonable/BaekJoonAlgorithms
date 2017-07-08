@@ -27,7 +27,6 @@ int pro1874(){
 
     int num = 1;
 
-
     while ( true ){
         //종료
         if (idx == N ){
