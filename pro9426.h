@@ -19,7 +19,6 @@ int Compare (const void * a, const void * b)
     return ( *(short*)a - *(short*)b );
 }
 
-
 int pro9426(){
     int N, K;   cin>>N>>K;
     int result = 0;
