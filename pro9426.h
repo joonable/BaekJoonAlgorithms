@@ -14,8 +14,7 @@ int GetMedian(int len){
     return (len - 1) / 2;
 }
 
-int Compare (const void * a, const void * b)
-{
+int Equal( const void* a, const void* b ){
     return ( *(short*)a - *(short*)b );
 }
 
@@ -32,7 +31,7 @@ int pro9426(){
         for( int j = 0 ; j < K ; ++j ){
             temp[j] = temperatures[i + j];
         }
-        qsort(temp, K, sizeof(short), Compare);
+        qsort(temp, K, sizeof(short), Equal);
         int mid = GetMedian(K);
         result += temp[mid];
         delete[](temp);
