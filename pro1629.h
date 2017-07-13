@@ -13,10 +13,13 @@ unsigned long a, b, c, n = 1;
 unsigned long func(unsigned long low, unsigned long high){
     if( low < b ){
         n = (n * 2);
-        func(n, b);
+        func(low * 2, high);
     }
     else if( low > b ){
-        high = high / 2;
+        func(low, high / 2);
+    }
+    else if( low == b ){
+
     }
 }
 
