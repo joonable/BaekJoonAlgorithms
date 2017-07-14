@@ -3,5 +3,5 @@ project(BaekJoonAlgorithms)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES main.cpp pro2448.h pro2448.h pro10828.h pro1874.h pro9012.h pro2504.h pro10845.h pro1260.h pro1966.h pro11866.h pro1152.h pro2577.h pro8958.h pro2920.h pro10039.h pro10866.h pro2750.h pro2751.h pro1021.h pro5430.h pro11718.h pro9426.h pro2747.h pro2748.h pro1003.h pro11050.h pro11051.h pro11401.h pro14627.h pro1920.h pro1654.h pro1629.h pro1427.h)
+set(SOURCE_FILES main.cpp pro2448.h pro2448.h pro10828.h pro1874.h pro9012.h pro2504.h pro10845.h pro1260.h pro1966.h pro11866.h pro1152.h pro2577.h pro8958.h pro2920.h pro10039.h pro10866.h pro2750.h pro2751.h pro1021.h pro5430.h pro11718.h pro9426.h pro2747.h pro2748.h pro1003.h pro11050.h pro11051.h pro11401.h pro14627.h pro1920.h pro1654.h pro1629.h pro1427.h pro3344.h)
 add_executable(BaekJoonAlgorithms ${SOURCE_FILES})

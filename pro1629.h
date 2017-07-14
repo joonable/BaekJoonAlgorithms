@@ -6,41 +6,35 @@
 #define BAEKJOONALGORITHMS_PRO1629_H
 
 #include <iostream>
+#include <cmath>
 using namespace std;
 
-unsigned long a, b, c, n = 1;
-
-unsigned long func(unsigned long low, unsigned long high){
-    if( low < b ){
-        n = (n * 2);
-        func(low * 2, high);
-    }
-    else if( low > b ){
-        func(low, high / 2);
-    }
-    else if( low == b ){
-
-    }
-}
-
 int pro1629(){
-    cin>>a>>b>>c;
-    n = a;
-    for( int i = 0 ; i < b ; ++i ){
-        a = (a * a) % c;
-        if (a == 0){
-            a = n;
+    unsigned long long a, b, c;   cin>>a>>b>>c;
+
+    unsigned long long a_ = a % c, b_ = 1, result = 1;
+
+    while(true){
+        if(b <= b_ * 2 ){
+            b = b - b_;
+            b_ = 1;
+            result = (result * a_) % c;
+            a_ = a % c;
+            if(b == 0){
+                break;
+            }
+            else if (b == b_){
+                result = (result * a_) % c;
+                break;
+            }
         }
+
+        a_ = (unsigned long long)pow(a_, 2) % c;
+        b_ *= 2;
     }
 
-    a %= c;
-    cout<<a;
-
-//    cout<<result<<endl;
-//    result %= c;
-//    cout<<result<<endl;
+    cout<<result;
 
     return 0;
 }
-//2147483647
 #endif //BAEKJOONALGORITHMS_PRO1629_H
