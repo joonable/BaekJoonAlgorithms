@@ -1,8 +1,9 @@
 #include <iostream>
-#include <cmath>
-#include "pro3344.h"
+
+#include "pro1932.h"
 
 int main() {
-    pro3344();
+    pro1932();
+
     return 0;
 }
