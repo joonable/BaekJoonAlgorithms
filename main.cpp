@@ -1,9 +1,8 @@
 #include <iostream>
 
-#include "pro1932.h"
+#include "pro9375.h"
 
 int main() {
-    pro1932();
-
+    pro9375();
     return 0;
 }

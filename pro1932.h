@@ -6,18 +6,44 @@
 #define BAEKJOONALGORITHMS_PRO1932_H
 
 #include <iostream>
-using namespace std;
 
+using namespace std;
 int pro1932(){
-    char d[500][500];
+
+    int d[500][500] = {0};
     int n;      cin>>n;
-    int num = n * ( n + 1 ) / 2;
+
     for( int i = 0 ; i < n ; ++i ){
         for( int j = 0 ; j <= i ; ++j ){
-            cin>>d[i][j];
+            int num;
+            scanf("%d", &num);
+            d[i][j] = num;
         }
     }
-    d[0][0] = 5;
+
+    for( int i = 1 ; i < n ; ++i ){
+        d[i][0] += d[i-1][0];
+
+        for( int j = 1 ; j < i ; ++j ){
+            if( d[i-1][j-1] > d[i-1][j]){
+                d[i][j] += d[i-1][j-1];
+            }
+            else{
+                d[i][j] += d[i-1][j];
+            }
+        }
+        d[i][i] += d[i-1][i-1];
+    }
+
+    int max = d[n-1][0];
+
+    for( int i = 1 ; i < n ; ++i ){
+        if( d[n-1][i] > max ){
+            max = d[n-1][i];
+        }
+    }
+
+    cout<<max;
     return 0;
 }
 
