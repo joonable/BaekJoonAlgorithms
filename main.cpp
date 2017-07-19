@@ -1,8 +1,8 @@
 #include <iostream>
 
-#include "pro9375.h"
+#include "pro2580.h"
 
 int main() {
-    pro9375();
+    pro2580();
     return 0;
 }
