@@ -1,7 +1,7 @@
 
-#include "pro1149.h"
+#include "pro1725.h"
 
 int main() {
-    pro1149();
+    pro1725();
     return 0;
 }
