@@ -6,20 +6,43 @@
 #define BAEKJOONALGORITHMS_PRO2098_H
 
 #include <iostream>
+#include <set>
+#include <map>
+#include <vector>
+#include <array>
+#include <cmath>
+
 using namespace std;
 
-int W[16][16];
-int D[16][32768];
+
+const int MAX = 16;
+int W[MAX][MAX];
+//int D[MAX][32768];
 int pro2098(){
-    int N;      cin>>N;
+    int N;          cin>>N;
+
+    array< array<int, MAX>, MAX> W = {0};
     for( int i = 0 ; i < N ; ++i ){
         for( int j = 0 ; j < N ; ++j ){
             scanf("%d", &W[i][j]);
         }
     }
 
+    map< bitset<MAX>, vector<int> > D;
     for( int i = 0 ; i < N ; ++i ){
-        D[i][0] = W[i][1];
+        for( int j = 0 ; j < N ; ++j ){
+            scanf("%d", &W[i][j]);
+        }
+    }
+
+//    D.insert(0, vector<int>() );
+    for( int i = 0 ; i < N ; ++i ){
+        vector<int> temp;
+        int j = 0;
+        for( int k = 0 ; k < N ; ++k ){
+            temp[k]= W[k][0];
+        }
+        D[i] = temp;
     }
 
 
