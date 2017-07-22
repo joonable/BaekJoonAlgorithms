@@ -6,12 +6,15 @@
 #define BAEKJOONALGORITHMS_PRO1629_H
 
 #include <iostream>
-#include <cmath>
+
 using namespace std;
 
 unsigned long long c;
 
 unsigned long long Power(unsigned long long a, unsigned long long  b){
+    if( b == 0 ){
+        return 1;
+    }
     if( b == 1 ){
         return a % c;
     }
@@ -20,7 +23,7 @@ unsigned long long Power(unsigned long long a, unsigned long long  b){
     if( b % 2 == 1 ){
         return ( (X % c) * (X % c) * (a % c) ) % c;
     }
-    else{
+    else if(b % 2 == 0){
         return ( (X % c) * (X % c) ) % c;
     }
 }

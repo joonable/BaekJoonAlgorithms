@@ -35,7 +35,7 @@ int pro1725(){
     sort(items.begin(),items.end(), Compare);
 //    max = N;
     max = items.begin()->first ;
-    checked[items.begin()->second] = true;
+//    checked[items.begin()->second] = true;
 
 //    i = 0;
     for( auto& item : items ){
