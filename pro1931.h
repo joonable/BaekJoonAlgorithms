@@ -31,21 +31,14 @@ int pro1931(){
     sort(schedule.begin(), schedule.end(), CompareByFirst);
     sort(schedule.begin(), schedule.end(), CompareBySecond);
 
-//    for( int i = 0 ; i < N ; ++i ){
-//        cout<<schedule[i].first<<" "<<schedule[i].second<<endl;
-//    }
-
     int cnt = 0, end = -1;
     for( int i = 0 ; i < N ; ++i ){
         if(schedule[i].first >= end ){
-//            cout<<schedule[i].first<<" "<<schedule[i].second<<endl;
             end = schedule[i].second;
             cnt++;
-
         }
     }
     cout<<cnt;
-
     return 0;
 }
 
