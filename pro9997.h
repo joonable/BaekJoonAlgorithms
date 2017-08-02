@@ -8,60 +8,58 @@
 #include <iostream>
 using namespace std;
 #include <cmath>
-#include <bitset>
-int bitSet[26] = {0};
-int N;
-
-
-void Add(int i, int x){
-    bitSet[i] |= (1 << x);
-}
-
-void Remove(int i, int x){
-    bitSet[i] &= ~(1 << x);
-}
-
-void Check(int i, int x){
-    if(bitSet[i] & (1 << x)){
-        printf("1\n");
-    }
-    else{
-        printf("0\n");
-    }
-}
-
-void Toggle(int i, int x){
-    bitSet[i] ^= (1 << x);
-}
-
-void All(int i){
-    bitSet[i] = (1 << (N+1)) -1;
-}
-
-void Empty(int i){
-    bitSet[i] = 0;
-}
-
+#include <cstring>
+//#include <bitset>
 int pro9997(){
-    int arr[(int)pow(2, 25) - 1] = {0};
-        cin>>N;
+    unsigned int words[25] = {0};
+    int N;     cin>>N;
 
-    string word;
-
+    char word[101];
     for( int n = 0 ; n < N ; ++n ){
-        cin>>word;
-        for( int i = 0 ; i < word.length() + 1 ; ++i ){
-            Add(n, word[i] - 'a');
+        scanf("%s", &word);
+
+
+        for( int i = 0 ; i < strlen(word) ; ++i ){
+            words[n] |= (1 << (word[i] - 'a'));
+//            cout<<word[i] - 'a' + 1<<" ";
         }
+//        cout<<endl;
     }
-    int min = 250000;
-    for( int i = 0 ; i < 26 ; ++i ){
-        if( min > bitSet[i] ){
-            min = bitSet[i];
+    unsigned int wholeSet = (1 << N) - 1;
+    unsigned int subSet = wholeSet;
+    unsigned int testSentence, cnt = 0;
+    while(subSet){
+//        cout<<subSet<<" ";
+        testSentence = 0;
+        for( int i = 0 ; i < N ; ++i ){
+//            if(subSet & (1 << i )){
+//                cout<<i<<" ";
+//                cout<<i<<" : "<<words[i]<<" ";
+//                testSentence |= words[i];
+//            }
+            testSentence |= (words[i] * (bool)(subSet & (1 << i)));
         }
+
+        if( testSentence == (1<<26)-1 ){
+            cnt++;
+        }
+
+        subSet  = ((subSet - 1) & wholeSet);
+//        bitset<26> x(testSentence);
+//        cout<<x<<endl;
     }
-    cout<<min;
+
+//    for( int i = 0 ; i < N ; ++i ){
+//        bitset<26> x(words[i]);
+//        cout<<x<<endl;
+//    }
+//    bitset<26> x(words[0] | words[1]);
+//    cout<<x<<endl;
+
+    cout<<cnt;
     return 0;
 }
+
+
 
 #endif //BAEKJOONALGORITHMS_PRO9997_H
