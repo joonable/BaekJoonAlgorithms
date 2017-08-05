@@ -48,7 +48,6 @@ int pro11723(){
             continue;
         }
     }
-
     return 0;
 }
 

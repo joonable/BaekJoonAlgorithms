@@ -7,14 +7,18 @@
 
 #include <iostream>
 #include <deque>
+#include <vector>
 using namespace std;
 
 int pro11003(){
+    vector< vector<int> > a(10);
     int N, L;       cin>>N>>L;
     int min = 1000000001, minIdx = L;
     int head = 0, tail = 0;
+
     deque<int> numbers;
     int num = 0;
+
     for( int i = 0 ; i < L ; ++i ){
         scanf("%d", &num);
         numbers.push_back(num);
@@ -25,6 +29,7 @@ int pro11003(){
         tail++;
         printf("%d ", min);
     }
+
     for( int i = L ; i < N ; ++i ){
         head++;
         scanf("%d", &num);
@@ -42,6 +47,7 @@ int pro11003(){
                 j++;
             }
         }
+
         if( min > num ){
             min = num;
             minIdx = i;

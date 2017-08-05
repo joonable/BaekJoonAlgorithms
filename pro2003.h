@@ -48,7 +48,6 @@ int pro2003(){
             cnt++;
         }
     }
-
     cout<<cnt;
     return 0;
 }

@@ -44,10 +44,10 @@ int pro2096(){
         flag = !flag;
     }
 
-    int max_num = max(max(dpForMax[!flag][0], dpForMax[!flag][1]), dpForMax[!flag][2]);
-    int min_num = min(min(dpForMin[!flag][0], dpForMin[!flag][1]), dpForMin[!flag][2]);
+    int maxVal = max(max(dpForMax[!flag][0], dpForMax[!flag][1]), dpForMax[!flag][2]);
+    int minVal = min(min(dpForMin[!flag][0], dpForMin[!flag][1]), dpForMin[!flag][2]);
 
-    cout<<max_num<<" "<<min_num;
+    cout<<maxVal<<" "<<minVal;
     return 0;
 }
 
