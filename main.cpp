@@ -1,15 +1,9 @@
 
-//#include "pro11003.h"
-//
-//int main() {
-//
-//    pro11003();
-//    return 0;
-//}
+#include "pro9237.h"
 #include <iostream>
 using namespace std;
 
 int main() {
-
+    pro9237();
     return 0;
 }
