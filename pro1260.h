@@ -16,7 +16,7 @@ bool isNode[1000] = { false };
 queue<int> Queue;
 stack<int> Stack;
 
-int C, M, V;
+int C, M, N;
 
 void Dfs(int v){
     if( Stack.empty() || !isNode[v - 1] ){
@@ -53,7 +53,7 @@ void Bfs(int v){
 }
 
 int pro1260(){
-    cin>>C>>M>>V;
+    cin>>C>>M>>N;
     for ( int i = 0 ; i < C ; ++i ) {
         isNode[i] = true;
     }
@@ -62,7 +62,7 @@ int pro1260(){
         isEdge[x - 1][y - 1] = true;
         isEdge[y - 1][x - 1] = true;
     }
-    Stack.push(V);
+    Stack.push(N);
     Dfs(Stack.top());
 
     printf("\n");
@@ -71,7 +71,7 @@ int pro1260(){
         isNode[i] = true;
     }
 
-    Queue.push(V);
+    Queue.push(N);
     Bfs( Queue.front() );
     return 0;
 }

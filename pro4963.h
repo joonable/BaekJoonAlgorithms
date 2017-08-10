@@ -7,6 +7,7 @@
 // A simple representation of graph using STL,
 // for the purpose of competitive programming
 //#include<bits/stdc++.h>
+
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -14,10 +15,11 @@
 using namespace std;
 
 int w, h;
+
 int xShift[8]={-1,-1,-1,0,0,1,1,1};
 int yShift[8]={-1,0,1,-1,1,-1,0,1};
 
-void BFS( vector<vector<bool>>& marine, int i, int j){
+void DFS( vector<vector<bool>>& marine, int i, int j ){
     int x, y;
     marine[i][j] = false;
     for( int n = 0 ; n < 8 ; ++n ){
@@ -27,14 +29,13 @@ void BFS( vector<vector<bool>>& marine, int i, int j){
             continue;
         }
         if (marine[x][y]){
-            BFS(marine, x, y);
+            DFS(marine, x, y);
         }
     }
 }
 
-// Driver code
 int pro4963(){
-    while( true){
+    while(true){
         int cnt = 0;
 
         cin>>w>>h;
@@ -62,9 +63,8 @@ int pro4963(){
 
             if(marine[i][j]){
                 cnt++;
-                BFS(marine, i, j);
+                DFS(marine, i, j);
             }
-
         }
         cout<<cnt<<endl;
     }
