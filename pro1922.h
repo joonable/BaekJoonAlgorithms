@@ -16,13 +16,14 @@ using namespace std;
 int N;
 
 int minKey(vector<int>& key, vector<bool>& mstSet){
-    // Initialize min value
     int min = INF, min_index;
 
-    for (int v = 0; v < N; v++)
-        if (!mstSet[v] && key[v] < min)
-            min = key[v], min_index = v;
-
+    for( int v = 0 ; v < N ; v++ ){
+        if( !mstSet[v] && key[v] < min ){
+            min = key[v];
+            min_index = v;
+        }
+    }
     return min_index;
 }
 
@@ -39,9 +40,10 @@ void primMST(vector<vector<int>>& W){
     vector<bool> mstSet(N);
 
     // Initialize all keys as INFINITE
-    for (int i = 0; i < N; i++)
-        key[i] = INF, mstSet[i] = false;
-
+    for (int i = 0; i < N; i++){
+        key[i] = INF;
+        mstSet[i] = false;
+    }
 
     key[0] = 0;
     parent[0] = -1;
@@ -51,8 +53,10 @@ void primMST(vector<vector<int>>& W){
         int u = minKey(key, mstSet);
         mstSet[u] = true;
         for (int v = 0; v < N; v++)
-            if (W[u][v] && mstSet[v] == false && W[u][v] <  key[v])
-                parent[v]  = u, key[v] = W[u][v];
+            if (W[u][v] && mstSet[v] == false && W[u][v] <  key[v]){
+                parent[v]  = u;
+                key[v] = W[u][v];
+            }
     }
 
     printMST(parent, 0, W);

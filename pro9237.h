@@ -11,7 +11,9 @@
 
 using namespace std;
 
-bool Compare (int i, int j) { return (i > j); }
+bool Compare (int i, int j) {
+    return (i > j);
+}
 
 int pro9237(){
     int days = 0;
