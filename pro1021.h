@@ -28,7 +28,7 @@ int pro1021(){
         int val = Deque.front();
         int target = arr[arrIdx++];
         if( target == val ){
-//            cout<<"pass "<<target<<" "<<val<<endl;
+//            cout<<"pass "<<target<<" "<<n<<endl;
             Deque.pop_front();
             continue;
         }

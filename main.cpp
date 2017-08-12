@@ -82,9 +82,9 @@ using namespace std;
 //    }
 //}
 
-#include "pro1719.h"
+#include "pro2042.h"
 
 int main() {
-    pro1719();
+    pro2042();
     return 0;
 }
