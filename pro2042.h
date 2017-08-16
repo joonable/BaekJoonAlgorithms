@@ -14,19 +14,18 @@ using namespace std;
 long long treeLen;
 int arr[1000000] = {0,};
 
-void InitTree( vector<long long>& tree, long long node, int start, int end ){
-    if(start > end || node > treeLen){
-        return;
+long long InitTree( vector<long long>& tree, long long node, long long start, long long end ){
+    if(start == end){
+        return tree[node] = arr[start];
     }
-    for( int i = start ; i <= end ; ++i ){
-        tree[node] += arr[i];
-    }
-    InitTree(tree, 2 * node, start, ( start + end ) / 2);
-    InitTree(tree, 2 * node + 1, ( start + end ) / 2 + 1, end);
+    return tree[node] = InitTree(tree, 2 * node, start, ( start + end ) / 2)
+           + InitTree(tree, 2 * node + 1, ( start + end ) / 2 + 1, end);
+
 }
 
-long long SumSegment(vector<long long>& tree, long long node, int& left, int& right, int start, int end){
-    if(start > end || node > treeLen){
+long long SumSegment(vector<long long>& tree, long long node, long long& left, long long& right,
+                     long long start, long long end){
+    if(left > end || right < start){
         return 0;
     }
     if(left <= start && end <= right){
@@ -36,15 +35,17 @@ long long SumSegment(vector<long long>& tree, long long node, int& left, int& ri
             SumSegment(tree, 2 * node + 1, left, right, ( start + end ) / 2 + 1, end);
 }
 
-void modifySegment(vector<long long>& tree, int node, int& pos, int& diff, int start, int end){
-    if(start > end || node > treeLen){
+void updateSegment( vector<long long>& tree, int node, long long& pos, long long& diff, int start, int end ){
+    if(pos < start || pos > end){
         return;
     }
-    if( start <= pos && pos <= end){
-        tree[node] += diff;
+
+    tree[node] += diff;
+
+    if(start != end){
+        updateSegment(tree, 2 * node, pos, diff, start, ( start + end ) / 2);
+        updateSegment(tree, 2 * node + 1, pos, diff, ( start + end ) / 2 + 1, end);
     }
-    modifySegment(tree, 2 * node, pos, diff, start, ( start + end ) / 2);
-    modifySegment(tree, 2 * node + 1, pos, diff, ( start + end ) / 2 + 1, end);
 }
 
 int pro2042(){
@@ -54,20 +55,23 @@ int pro2042(){
     vector<long long> tree(treeLen, 0);
 
     for( int i = 0 ; i < N ; ++i ){
+//        arr[i] = 1;
+//        sum += arr[i];
         scanf("%d", &arr[i]);
     }
 
     InitTree(tree, 1, 0, N - 1);
 
     for( int i = 0 ; i < M + K ; ++i ){
-        int a, b, c;
-        scanf("%d %d %d", &a, &b, &c);
-        int& menu = a, &pos = b, &val = c, &left = b, &right = c;
+        long long a, b, c;
+        scanf("%lli %lli %lli", &a, &b, &c);
+        long long& menu = a, &pos = b, &val = c, &left = b, &right = c;
+
         switch(menu){
             case 1:{
                 pos--;
-                int diff = - arr[pos] + val;
-                modifySegment(tree, 1, pos, diff, 0, N - 1);
+                long long diff = val - arr[pos];
+                updateSegment(tree, 1, pos, diff, 0, N - 1);
                 break;
             }
             case 2:{
