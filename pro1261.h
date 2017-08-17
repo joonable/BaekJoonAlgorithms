@@ -22,10 +22,13 @@ bool IsInRange( int x, int y ){
 }
 void BFS(const vector<vector<bool>>& Wall, vector<vector<int>>& d, int i, int j){
     d[i][j] = 0;
+
     queue<pair<int, int>> Queue;
     Queue.push(make_pair(i, j));
+
+    int x = Queue.front().first;
+
     while(!Queue.empty()){
-        int x = Queue.front().first;
         int y = Queue.front().second;
         Queue.pop();
 
@@ -45,7 +48,6 @@ void BFS(const vector<vector<bool>>& Wall, vector<vector<int>>& d, int i, int j)
             }
         }
     }
-
 }
 
 int pro1261(){

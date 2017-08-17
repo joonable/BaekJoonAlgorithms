@@ -6,111 +6,53 @@
 #define BAEKJOONALGORITHMS_PRO1697_H
 
 #include <iostream>
-#include <algorithm>
 #include <queue>
-#include <functional>
+#include <vector>
 
+#define MAX 1000001
 using namespace std;
-int N, K;
-bool found = false;
 
-vector<bool> visited;
-struct nextN{
-    int n, seconds, gap;
-
-    nextN( int n, int seconds, int gap )
-            : n(n), seconds(seconds), gap(gap){ }
-};
-
-class Comparison{
-    bool reverse;
-public:
-    Comparison(const bool& reverse = false)
-            : reverse(reverse){ }
-    bool operator() (const nextN& ref1, const nextN& ref2) const {
-        if (reverse){
-            if (ref1.seconds != ref2.seconds){
-                return (ref1.seconds > ref2.seconds);
-            }
-            else{
-                return (ref1.gap > ref2.gap);
-            }
-        }
-//        else{
-//            return (ref1.gap < ref2.gap);
-    }
-};
-
-//priority_queue<nextN, vector<nextN>, Comparison > Queue;
-queue<nextN> Queue;
-
-void FindK(int n, int seconds){
-//    visited[n] = true;
-    if( found ){
-        return;
-    }
-    if( n == K || n / 2 == K ){
-        found = true;
-        cout<<seconds<<" ";
-        return;
-    }
-    if( n + 1 == K ||n - 1 == K){
-        found = true;
-        cout<<seconds + 1<<" ";
-        return;
-    }
-
-
-//    cout<<n<<" ";
-    if( n == 0) {
-        Queue.push(nextN(n + 1, seconds + 1, 0));
-        return;
-    }
-    int minusGap = abs(K - 2 * (n - 1));
-    int plusGap = abs(K - 2 * (n + 1));
-
-//    int gap = abs(K - 2 * (n) );
-//    int minGap = min(minusGap, gap);
-//    minGap = min(minGap, plusGap);
-//
-//    if (minGap == gap ){
-//        Queue.push( nextN( 2 * n, seconds + 1, abs(K - 2 * (n) )) );
-//    }
-//    else if(plusGap == minGap && (n > 1)){
-//        Queue.push( nextN(n - 1, seconds + 1, minusGap) );
-//    }
-//    else{
-//        Queue.push( nextN(n + 1, seconds + 1, plusGap) );
-//    }
-
-    if( (minusGap < plusGap) && (n > 1)){
-        Queue.push( nextN(n - 1, seconds + 1, minusGap) );
-    }
-    else{
-        Queue.push( nextN(n + 1, seconds + 1, plusGap) );
-    }
-    if( abs(K - 2 * (n) ) < abs(K - (n))  ){
-        Queue.push( nextN( 2 * n, seconds + 1, abs(K - 2 * (n) )) );
-    }
-
-
-}
 
 int pro1697(){
-    cin>>N>>K;
-    visited.assign(K + 1, false);
+    int N, K;       cin>>N>>K;
 
-    Queue.push(nextN(N, 0, 0));
+    if (N == K){
+        cout<<0;
+        return 0;
+    }
 
+    vector<bool> visited(MAX, false);
+    queue<int> Queue;
+    Queue.push(N);      visited[N] = true;
+
+    int value, depth = 0;
     while(!Queue.empty()){
-        int n = Queue.front().n;
-        int seconds = Queue.front().seconds;
-        Queue.pop();
+        int qSize = (int)Queue.size();
+        depth++;
+        for( int i = 0 ; i < qSize ; ++i ){
+            value = Queue.front();
+            Queue.pop();
 
-        if(visited[n]){
-            continue;
+            if (value - 1 >= 0 && visited[value - 1] == false){
+                Queue.push(value - 1);
+                visited[value - 1] = true;
+            }
+
+            if (value + 1 < MAX && visited[value + 1] == false){
+                Queue.push(value + 1);
+                visited[value + 1] = true;
+            }
+
+            if (value * 2 < MAX && visited[value * 2] == false){
+                Queue.push(value * 2);
+                visited[value * 2] = true;
+            }
+
+            if (visited[K] == true){
+                cout<<depth;
+                return 0;
+            }
         }
-        FindK(n, seconds);
     }
     return 0;
 }
