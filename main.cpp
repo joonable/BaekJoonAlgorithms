@@ -1,6 +1,6 @@
-#include "pro1389.h"
+#include "pro1937.h"
 
 int main() {
-    pro1389();
+    pro1937();
     return 0;
 }

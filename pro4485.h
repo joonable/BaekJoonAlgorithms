@@ -1,0 +1,8 @@
+//
+// Created by JoonYoung Jeon on 19/08/2017.
+//
+
+#ifndef BAEKJOONALGORITHMS_PRO4485_H
+#define BAEKJOONALGORITHMS_PRO4485_H
+
+#endif //BAEKJOONALGORITHMS_PRO4485_H
