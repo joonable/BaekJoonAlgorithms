@@ -14,7 +14,7 @@
 using namespace std;
 
 // iPair ==>  Integer Pair
-typedef pair<int, int> iPair;
+typedef pair<int, int> iTuple;
 
 // This class represents a directed graph using
 // adjacency list representation
@@ -23,22 +23,22 @@ class Graph{
 
     // In a weighted graph, we need to store vertex
     // and weight pair for every edge
-    list<iPair>* adj;
+    list<iTuple>* adj;
 
 public:
     // Constructor - Allocates memory for adjacency list
     Graph(int V) : V(V){
-        this->adj = new list<iPair>[V];
+        this->adj = new list<iTuple>[V];
     }
 
     // function to add an edge to graph
     void addEdge(int u, int v, int w){
-        adj[u].emplace_back(iPair(v, w));
+        adj[u].emplace_back(iTuple(v, w));
     }
 
     // Prints shortest paths from src to all other vertices
     void shortestPath(int src){
-        priority_queue< iPair, vector <iPair> , less<iPair> > pq;
+        priority_queue< iTuple, vector <iTuple> , less<iTuple> > pq;
 
         // Create a vector for distances and initialize all
         // distances as infinite (INF)
