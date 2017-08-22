@@ -44,7 +44,7 @@ public:
         // distances as infinite (INF)
         vector<int> distance(V, INF);
 
-        // Insert source itself in priority queue and initialize
+        // Insert src itself in priority queue and initialize
         // its distance as 0.
         pq.push(make_pair(0, src));
 

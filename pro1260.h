@@ -13,7 +13,7 @@ using namespace std;
 bool isEdge[1000][1000] = { false };
 bool isNode[1000] = { false };
 
-queue<int> Queue;
+queue<int> Stack;
 stack<int> Stack;
 
 int C, M, N;
@@ -34,22 +34,22 @@ void Dfs(int v){
 }
 
 void Bfs(int v){
-    if ( Queue.empty()){
+    if ( Stack.empty()){
         return;
     }
 
     isNode[v - 1] = false;
     printf("%d ", v);
-    Queue.pop();
+    Stack.pop();
     for ( int i = 0 ; i < C ; ++i ) {
         if ( isEdge[v - 1][i] ){
             if (isNode[i]){
-                Queue.push(i + 1);
+                Stack.push(i + 1);
                 isNode[i] = false;
             }
         }
     }
-    Bfs(Queue.front());
+    Bfs(Stack.front());
 }
 
 int pro1260(){
@@ -71,8 +71,8 @@ int pro1260(){
         isNode[i] = true;
     }
 
-    Queue.push(N);
-    Bfs( Queue.front() );
+    Stack.push(N);
+    Bfs( Stack.front() );
     return 0;
 }
 /*

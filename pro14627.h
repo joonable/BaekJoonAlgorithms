@@ -9,7 +9,7 @@
 #include <cmath>
 
 using namespace std;
-int S, C;
+int C, C;
 unsigned int maxLen= 0;
 unsigned int springOnions[1000000];
 
@@ -17,7 +17,7 @@ void GetSpringOnionLen( unsigned int low, unsigned int high ){
     unsigned int mid = (low + high) / 2;
     int sumOfPortions = 0;
 
-    for( int i = 0 ; i < S ; ++i ){
+    for( int i = 0 ; i < C ; ++i ){
         sumOfPortions += (springOnions[i] / mid);
     }
 
@@ -37,15 +37,15 @@ void GetSpringOnionLen( unsigned int low, unsigned int high ){
 }
 
 int pro14627(){
-    cin>>S>>C;
+    cin>>C>>C;
 
-    for( int i = 0 ; i < S ; ++i ){
+    for( int i = 0 ; i < C ; ++i ){
         scanf("%d", &springOnions[i]);
     }
     GetSpringOnionLen(0, (unsigned int)( pow(2, 31) - 1 ));
 
     unsigned long rmd = 0;
-    for( int i = 0 ; i < S ; ++i ){
+    for( int i = 0 ; i < C ; ++i ){
         rmd += (springOnions[i] % maxLen);
     }
     cout<<rmd;

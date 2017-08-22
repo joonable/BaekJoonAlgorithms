@@ -1,6 +1,12 @@
-#include "pro6118.h"
+//
+// Created by JoonYoung Jeon on 21/08/2017.
+//
 
-int main() {
-    pro6118();
+#include <iostream>
+#include "pro9466.h"
+using namespace std;
+
+int main(){
+    pro9466();
     return 0;
 }

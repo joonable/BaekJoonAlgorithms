@@ -12,14 +12,14 @@ using namespace std;
 
 int top = -1;
 const int MAX = 10000;
-int stack[MAX];
+int Stack[MAX];
 
 void Push(const int& x){
     if(top + 1 == MAX){
         printf("-1\n");
     }
     else{
-        stack[++top] = x;
+        Stack[++top] = x;
     }
 }
 
@@ -28,7 +28,7 @@ void Pop(){
         printf("-1\n");
     }
     else{
-        printf("%d\n", stack[top--]);
+        printf("%d\n", Stack[top--]);
     }
 }
 
@@ -50,7 +50,7 @@ void Top(){
         printf("-1\n");
     }
     else{
-        printf("%d\n", stack[top]);
+        printf("%d\n", Stack[top]);
     }
 }
 
