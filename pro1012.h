@@ -19,7 +19,7 @@ bool InRange(int x, int y){
     return 0 <= x && x < N && 0 <= y && y < M;
 }
 
-void Dfs(const vector<vector<bool>>& cabbage, vector<vector<bool>>& visited, int x, int y){
+void DFS( const vector<vector<bool>>& cabbage, vector<vector<bool>>& visited, int x, int y ){
     visited[x][y] = true;
 
     for( int i = 0 ; i < 4 ; ++i ){
@@ -31,7 +31,7 @@ void Dfs(const vector<vector<bool>>& cabbage, vector<vector<bool>>& visited, int
         }
 
         if( !visited[newX][newY] && cabbage[newX][newY]){
-            Dfs(cabbage, visited, newX, newY);
+            DFS(cabbage, visited, newX, newY);
         }
     }
 }
@@ -58,14 +58,13 @@ int pro1012(){
 
             if(cabbage[x][y] && !visited[x][y]){
                 cnt++;
-                Dfs(cabbage, visited, x, y);
+                DFS(cabbage, visited, x, y);
             }
         }
         cout<<cnt<<endl;
     }
-
-
     return 0;
 }
+
 
 #endif //BAEKJOONALGORITHMS_PRO1012_H

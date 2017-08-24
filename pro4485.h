@@ -55,13 +55,8 @@ void BFS(const vector<vector<int>>& map, vector<vector<int>>& d){
                 continue;
             }
 
-            if(d[newI][newJ] == INF){
+            if(d[newI][newJ] > d[i][j] + map[newI][newJ]){
                 d[newI][newJ] = d[i][j] + map[newI][newJ];
-                Queue.push( make_pair(newI, newJ) );
-            }
-            else if(d[newI][newJ] > d[i][j] + map[newI][newJ]){
-                d[newI][newJ] = d[i][j] + map[newI][newJ];
-//            d[newI][newJ] = min(d[newI][newJ], d[i][j] + map[newI][newJ]);
                 Queue.push( make_pair(newI, newJ) );
             }
         }
@@ -89,7 +84,6 @@ int pro4485(){
 
         printf("Problem %d: %d\n", t++, d[N - 1][N - 1]);
     }
-    return 0;
 }
 
 #endif //BAEKJOONALGORITHMS_PRO4485_H

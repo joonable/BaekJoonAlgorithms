@@ -21,11 +21,10 @@ bool InRange(int x, int y){
     return 0 <= x && x < N && 0 <= y && y < N;
 }
 
-void Bfs( const vector<vector<int>>& bamboos,  vector<vector<int>>& d, int x, int y){
+void BFS( const vector<vector<int>>& bamboos, vector<vector<int>>& d, int x, int y ){
     int maxDay = 0;
 
     for( int i = 0 ; i < 4 ; ++i ){
-
         int newX = x + shiftX[i];
         int newY = y + shiftY[i];
 
@@ -42,12 +41,12 @@ void Bfs( const vector<vector<int>>& bamboos,  vector<vector<int>>& d, int x, in
 
 }
 
+
 int pro1937(){
     cin>>N;
     vector<vector<int>> bamboos(N, (vector<int>(N)));
     vector<vector<int>> d(N, (vector<int>(N, 0)));
-    priority_queue<tuple<int, int, int>, vector< tuple<int, int, int> >, greater<tuple<int, int, int>>> pQueue;
-//    priority_queue<tuple<int, int, int>> pQueue;
+    priority_queue<tuple<int, int, int>, vector< tuple<int, int, int> >, greater< tuple<int, int, int> >> pQueue;
 
     for( int i = 0 ; i < N ; ++i ){
         for( int j = 0 ; j < N ; ++j ){
@@ -62,7 +61,7 @@ int pro1937(){
         int x = get<1>(current);
         int y = get<2>(current);
 
-        Bfs(bamboos, d, x, y);
+        BFS(bamboos, d, x, y);
         pQueue.pop();
     }
     cout<<maxAliveDay;

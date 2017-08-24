@@ -17,7 +17,6 @@ stack<int> Stack;
 
 void DFS(int student){
     visited[student] = true;
-
     if (visited[survey[student]]){
         return;
     }
@@ -45,7 +44,6 @@ int pro9466(){
         visited.resize(N, false);
         int noTeamStuds = 0;
         int teamStuds = 0;
-//        vector<bool> team(N, false);
 
         for( int i = 0 ; i < N ; ++i ){
             scanf("%d", &survey[i]);

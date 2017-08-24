@@ -28,15 +28,16 @@ public:
     }
 
     void ShortestPath(int src){
-//        priority_queue pQueue;
         queue<int> Queue;
         vector<int> distance(V, INF);
         Queue.push(src);
         distance[src] = 0;
         int depth = 0;
+
         while(!Queue.empty()){
             int qSize = (int)Queue.size();
             depth++;
+
             for( int i = 0 ; i < qSize ; ++i ){
                 int u = Queue.front();
                 Queue.pop();
@@ -52,6 +53,7 @@ public:
 
         int longestPath = -1;
         int maxIdx = 0;
+
         for( int i = 0 ; i < V ; ++i ){
             if(distance[i] > longestPath){
                 longestPath = distance[i];
