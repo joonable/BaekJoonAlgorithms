@@ -3,10 +3,12 @@
 //
 
 #include <iostream>
-#include "pro1074.h"
+#include "pro6593.h"
 using namespace std;
 
 int main(){
-    pro1074();
+    pro6593();
     return 0;
 }
+
+
