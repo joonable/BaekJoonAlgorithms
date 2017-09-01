@@ -30,13 +30,12 @@ string Divide(const array<array<char, MAX>, MAX>& arr, const int& iLow, const in
     if(ch1 == ch2 && ch2 == ch3 && ch3 == ch4 && ch1.length() == 1){
         return ch1;
     }
-    return '('+ch1 + ch2 + ch3 + ch4 + ')';
+    return '(' + ch1 + ch2 + ch3 + ch4 + ')';
 }
 
 int pro1992(){
     array<array<char, MAX>, MAX> arr = {0};
     int N;      cin>>N;
-//    if(N == )
     for( int i = 0 ; i < N ; ++i ){
         scanf("%s", &arr[i]);
     }

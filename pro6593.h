@@ -14,7 +14,7 @@
 #include <cstdio>
 
 using namespace std;
-const int MAX = 15;
+const int MAX = 30;
 typedef tuple<int, int, int> iTuple;
 
 int L, R, C;
@@ -33,7 +33,7 @@ int pro6593(){
         if(L == 0 && R == 0 && C == 0) break;
         iTuple start, escaping;
 
-        array<array<array<char, MAX+1>, MAX>, MAX> building = {1};
+        array<array<array<char, MAX>, MAX>, MAX> building = {1};
         array<array<array<bool, MAX>, MAX>, MAX> visited = {false};
         bool sFound = false, eFound = false;
         for( int l = 0 ; l < L ; ++l )
@@ -86,7 +86,7 @@ int pro6593(){
                         continue;
                     }
                     if( building[newL][newR][newC] == 'E' ){
-                        cout<<"Escaped in "<<minute<<" minute(s)"<<endl;
+                        cout<<"Escaped in "<<minute<<" minute(s)."<<endl;
                         found = true;
                         break;
                     }

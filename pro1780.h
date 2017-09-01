@@ -72,4 +72,6 @@ int pro1780(){
     return 0;
 }
 
+
+
 #endif //BAEKJOONALGORITHMS_PRO1780_H

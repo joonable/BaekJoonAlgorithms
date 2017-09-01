@@ -1,14 +1,13 @@
-//
+
 // Created by JoonYoung Jeon on 21/08/2017.
-//
+
 
 #include <iostream>
-#include "pro6593.h"
+#include "pro14501.h"
 using namespace std;
 
 int main(){
-    pro6593();
+    pro14501();
     return 0;
 }
-
 
