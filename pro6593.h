@@ -5,7 +5,7 @@
 #ifndef BAEKJOONALGORITHMS_PRO6593_H
 #define BAEKJOONALGORITHMS_PRO6593_H
 
-#define INF 27001
+#define MAX 27001
 
 #include <iostream>
 #include <array>
@@ -15,7 +15,7 @@
 
 using namespace std;
 const int MAX = 30;
-typedef tuple<int, int, int> iTuple;
+typedef tuple<int, int, int> iPair;
 
 int L, R, C;
 int dL[] = {0, 0, 0, 0, 1, -1};
@@ -31,7 +31,7 @@ int pro6593(){
         cin>>L>>R>>C;
 
         if(L == 0 && R == 0 && C == 0) break;
-        iTuple start, escaping;
+        iPair start, escaping;
 
         array<array<array<char, MAX>, MAX>, MAX> building = {1};
         array<array<array<bool, MAX>, MAX>, MAX> visited = {false};
@@ -60,7 +60,7 @@ int pro6593(){
                 }
             }
 
-        queue<iTuple> Queue;
+        queue<iPair> Queue;
         Queue.push(start);
 
         int minute = 0;
@@ -71,7 +71,7 @@ int pro6593(){
             int qSize = (int)Queue.size();
             for( int i = 0 ; i < qSize ; ++i ){
                 if (found) break;
-                iTuple current = Queue.front();
+                iPair current = Queue.front();
                 Queue.pop();
 
                 for( int n = 0 ; n < 6 ; ++n ){
