@@ -3,11 +3,11 @@
 
 
 #include <iostream>
-#include "pro11657.h"
+#include "pro2342.h"
 using namespace std;
 
 int main(){
-    pro11657();
+    pro2342();
     return 0;
 }
 
