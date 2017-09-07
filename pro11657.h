@@ -9,7 +9,7 @@
 #include <iostream>
 #include <list>
 #include <vector>
-#define MAX 10001
+#define MAX 987654321
 using namespace std;
 
 typedef pair<int, int> iPair;
@@ -50,23 +50,13 @@ public:
                 int u = edge[i].src;
                 int v = edge[i].dest;
                 int weight = edge[i].weight;
-                if (dist[u] != MAX && dist[u] + weight < dist[v])
+                if (dist[u] != MAX && dist[u] + weight < dist[v]){
                     dist[v] = dist[u] + weight;
-            }
-        }
-
-
-        // Step 3: check for negative-weight cycles.
-        // The above step guarantees shortest distances
-        // if graph doesn't contain negative weight cycle.
-        // If we get a shorter path, then there is a cycle.
-        for (int i = 0; i < E; i++) {
-            int u = edge[i].src;
-            int v = edge[i].dest;
-            int weight = edge[i].weight;
-            if (dist[u] != MAX && dist[u] + weight < dist[v]){
-                cout<<-1;
-                return;
+                    if (n == V - 1){
+                        printf("-1");
+                        return;
+                    }
+                }
             }
         }
 

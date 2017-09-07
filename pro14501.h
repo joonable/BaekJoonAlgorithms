@@ -9,6 +9,7 @@
 #include <array>
 #include <queue>
 #include <tuple>
+
 #define MAX 15
 using namespace std;
 
@@ -57,4 +58,5 @@ int pro14501(){
     cout<<totalProfit;
     return 0;
 }
+
 #endif //BAEKJOONALGORITHMS_PRO14501_H
