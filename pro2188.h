@@ -40,7 +40,6 @@ public:
         adj[v].push_back(u); // Add u to v’s list.
     }
 
-
 // Returns true if there is an augmenting path, else returns false
     bool BFS(){
         queue<int> Q; //an integer queue
@@ -92,15 +91,13 @@ public:
     // Returns true if there is an augmenting path beginning with free vertex u
     bool DFS( int u ){
         if( u != NIL ){
-            list<int>::iterator i;
             for( auto& element: adj[u] ){
                 // Adjacent to u
                 int v = element;
 
                 // Follow the distances set by BFS
                 if( dist[pairV[v]] == dist[u] + 1 ){
-                    // If dfs for pair of v also returns
-                    // true
+                    // If dfs for pair of v also returns rue
                     if( DFS(pairV[v]) ){
                         pairV[v] = u;
                         pairU[u] = v;

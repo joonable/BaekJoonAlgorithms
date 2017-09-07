@@ -33,9 +33,9 @@ public:
     void AddEdge( int m, int u, int v, int w ){
         edge[m] = Edge(u, v, w);
     }
-// The main function that finds shortest distances from src to
-// all other vertices using Bellman-Ford algorithm.  The function
-// also detects negative weight cycle
+// The main function that finds shortest distances
+// from src to all other vertices using Bellman-Ford algorithm.
+// The function also detects negative weight cycle
     void BellmanFord(int src){
         // Step 1: Initialize distances from src to all other vertices
         // as INFINITE
